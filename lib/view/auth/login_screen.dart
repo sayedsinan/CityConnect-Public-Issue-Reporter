@@ -1,3 +1,4 @@
+import 'package:city_connect/view/auth/sign_up_screen.dart';
 import 'package:city_connect/view/style/color.dart';
 import 'package:city_connect/view/widgets/custom_button.dart';
 import 'package:city_connect/view/widgets/custom_input_field.dart';
@@ -37,12 +38,7 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Image.asset(
-                          'assets/logo.png',
-                          width: 130,
-                          height: 60,
-                        ),
-                      
+                        Image.asset('assets/logo.png', width: 130, height: 60),
                       ],
                     ),
                     const SizedBox(height: 15),
@@ -84,16 +80,15 @@ class LoginPage extends StatelessWidget {
                       hintText: "Enter your password",
                       controller: TextEditingController(),
                       isPassword: true,
-                      maxLine:1,
+                      maxLine: 1,
                     ),
 
-
                     const SizedBox(height: 24),
-              
+
                     CustomButton(
                       text: "Login",
                       onPressed: () {
-                        Get.to(() =>  MainNavigation());
+                        Get.to(() => MainNavigation());
                       },
                       backgroundColor: blueColor,
                       textColor: whiteColor,
@@ -104,7 +99,9 @@ class LoginPage extends StatelessWidget {
 
                     CustomButton(
                       text: "Create Account",
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(()=>SignupPage());
+                      },
                       backgroundColor: whiteColor,
                       textColor: blackColor,
                       height: 48,

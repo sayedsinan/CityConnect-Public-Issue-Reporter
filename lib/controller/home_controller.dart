@@ -1,13 +1,14 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  // Selected tab index
+
   var selectedTab = 0.obs;
 
-  // Selected category index
+
   var selectedCategory = 0.obs;
 
   final List<String> categories = [
+    "All",
     'Roads',
     'Electricity',
     'Waste',
