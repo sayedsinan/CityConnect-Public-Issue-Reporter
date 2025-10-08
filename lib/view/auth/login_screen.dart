@@ -69,6 +69,7 @@ class LoginPage extends StatelessWidget {
                       hintText: "Enter your email",
                       controller: TextEditingController(),
                       isPassword: false,
+                      maxLine: 1,
                     ),
                     const SizedBox(height: 20),
                     const Text(
@@ -83,7 +84,9 @@ class LoginPage extends StatelessWidget {
                       hintText: "Enter your password",
                       controller: TextEditingController(),
                       isPassword: true,
+                      maxLine:1,
                     ),
+
 
                     const SizedBox(height: 24),
               

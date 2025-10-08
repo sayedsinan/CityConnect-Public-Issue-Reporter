@@ -5,7 +5,7 @@ import 'package:city_connect/view/widgets/custom_input_field.dart';
 import 'package:flutter/material.dart';
 
 class ReportIssueScreen extends StatefulWidget {
-  const ReportIssueScreen({Key? key}) : super(key: key);
+  const ReportIssueScreen({super.key});
 
   @override
   State<ReportIssueScreen> createState() => _ReportIssueScreenState();
@@ -36,7 +36,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[50],
-      appBar: MyAppBar(title: "City Connect",),
+      appBar: MyAppBar(title: "City Connect"),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -185,6 +185,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                 hintText: "Short Title",
                 controller: TextEditingController(),
                 isPassword: false,
+                maxLine: 1,
               ),
               const SizedBox(height: 24),
 
@@ -198,27 +199,11 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                 ),
               ),
               const SizedBox(height: 8),
-              TextField(
-                controller: descriptionController,
-                maxLines: 5,
-                decoration: InputDecoration(
-                  hintText: 'Describe the issue...',
-                  hintStyle: TextStyle(color: Colors.grey[400]),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Colors.grey[300]!),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Colors.grey[300]!),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(color: Colors.black),
-                  ),
-                ),
+              CustomInputField(
+                hintText: "Describe Issue..",
+                controller: TextEditingController(),
+                isPassword: false,
+                maxLine: 5,
               ),
               const SizedBox(height: 24),
 
@@ -264,9 +249,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                   const SizedBox(width: 12),
                   Expanded(
                     child: GestureDetector(
-                      onTap: () {
-                        // Handle use camera
-                      },
+                      onTap: () {},
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 14),
                         decoration: BoxDecoration(

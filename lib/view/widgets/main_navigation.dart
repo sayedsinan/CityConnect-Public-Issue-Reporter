@@ -1,5 +1,6 @@
 import 'package:city_connect/controller/navigation_controller.dart';
 import 'package:city_connect/view/home/home_screen.dart';
+import 'package:city_connect/view/report/my_reports_screen.dart';
 import 'package:city_connect/view/report/report_issue_screen.dart';
 import 'package:city_connect/view/widgets/custom_nav_bar.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class MainNavigation extends StatelessWidget {
     final List<Widget> screens = [
       HomeScreen(),
       const ReportIssueScreen(),
-      // const SettingsScreen(), // Add this screen
+      const MyReportsScreen()
     ];
 
     return Obx(() => Scaffold(

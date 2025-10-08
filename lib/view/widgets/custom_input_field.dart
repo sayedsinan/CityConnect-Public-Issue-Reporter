@@ -4,11 +4,13 @@ class CustomInputField extends StatefulWidget {
   final String hintText;
   final TextEditingController controller;
   final bool isPassword;
+  final int maxLine;
   const CustomInputField({
     super.key,
     required this.hintText,
     required this.controller,
     required this.isPassword,
+    required this.maxLine
   });
 
   @override
@@ -19,6 +21,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      maxLines:widget.maxLine ,
       controller: widget.controller,
       obscureText: widget.isPassword,
       decoration: InputDecoration(
