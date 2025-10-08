@@ -44,8 +44,8 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/cityconnect.git
-   cd cityconnect
+   git clone https://github.com/sayedsinan/CityConnect-Public-Issue-Reporter
+   cd city_connect
    ```
 
 2. **Install dependencies**
