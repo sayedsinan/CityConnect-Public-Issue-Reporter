@@ -90,7 +90,7 @@ class LoginPage extends StatelessWidget {
                       onPressed: () {
                         Get.to(() => MainNavigation());
                       },
-                      backgroundColor: blueColor,
+                      backgroundColor: blackColor,
                       textColor: whiteColor,
                       height: 48,
                       width: double.infinity,
@@ -130,7 +130,7 @@ class LoginPage extends StatelessWidget {
                     CustomButton(
                       text: "Continue With Google",
                       onPressed: () {},
-                      backgroundColor: goldenColor,
+                      backgroundColor: Colors.grey[300]!,
                       textColor: blackColor,
                       height: 48,
                       width: double.infinity,

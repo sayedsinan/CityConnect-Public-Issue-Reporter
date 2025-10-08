@@ -1,3 +1,4 @@
+import 'package:city_connect/controller/auth_controller.dart';
 import 'package:city_connect/view/widgets/account_tab.dart';
 import 'package:city_connect/view/widgets/custom_app_bar.dart';
 import 'package:city_connect/view/widgets/overview_tab.dart';
@@ -5,6 +6,7 @@ import 'package:city_connect/view/widgets/preference_tab.dart';
 import 'package:city_connect/view/widgets/profile_header.dart';
 import 'package:city_connect/view/widgets/profile_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -14,10 +16,16 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final AuthController authController = Get.find<AuthController>();
   int selectedTab = 0;
   bool generalNotifications = true;
   bool resolvedAlerts = false;
   bool darkMode = false;
+  @override
+  void initState() {
+    super.initState();
+    authController.loadCurrentUser();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,5 +62,3 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 }
-
-

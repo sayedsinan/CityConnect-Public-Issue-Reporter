@@ -5,12 +5,15 @@ class CustomInputField extends StatefulWidget {
   final TextEditingController controller;
   final bool isPassword;
   final int maxLine;
+  final FormFieldValidator<String>? validator;
   const CustomInputField({
     super.key,
+    this.validator,
     required this.hintText,
     required this.controller,
     required this.isPassword,
-    required this.maxLine
+    required this.maxLine,
+  
   });
 
   @override
@@ -20,8 +23,9 @@ class CustomInputField extends StatefulWidget {
 class _CustomInputFieldState extends State<CustomInputField> {
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      maxLines:widget.maxLine ,
+    return TextFormField(
+      validator: widget.validator,
+      maxLines: widget.maxLine,
       controller: widget.controller,
       obscureText: widget.isPassword,
       decoration: InputDecoration(

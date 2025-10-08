@@ -1,4 +1,7 @@
 import 'package:city_connect/view/auth/login_screen.dart';
+import 'package:city_connect/view/widgets/main_navigation.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,8 +23,15 @@ class _SplashScreenState extends State<SplashScreen>
       duration: const Duration(seconds: 2),
       vsync: this,
     )..repeat();
-    Future.delayed(const Duration(seconds: 5), () {
-      Get.off(() => const LoginPage());
+
+    Future.delayed(const Duration(seconds: 3), () {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      if (user != null) {
+        Get.off(() => const MainNavigation());
+      } else {
+        Get.off(() => const LoginPage());
+      }
     });
   }
 
@@ -40,13 +50,9 @@ class _SplashScreenState extends State<SplashScreen>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                 'assets/logo.png',
-                 width:200,
-                 height: 100,
-               ),
-
-              Text(
+              Image.asset('assets/logo.png', width: 200, height: 100),
+              const SizedBox(height: 16),
+              const Text(
                 'City Connect',
                 style: TextStyle(
                   fontSize: 36,
@@ -63,15 +69,13 @@ class _SplashScreenState extends State<SplashScreen>
                   color: Colors.grey[600],
                 ),
               ),
-
               const SizedBox(height: 50),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   RotationTransition(
                     turns: _controller,
-                    child: SizedBox(
+                    child: const SizedBox(
                       width: 20,
                       height: 20,
                       child: CircularProgressIndicator(
